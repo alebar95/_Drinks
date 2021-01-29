@@ -4,6 +4,7 @@ import { IonSearchbar, Platform } from '@ionic/angular';
 import { DrinksService } from '../drinks.service';
 import { Drink } from '../model/drink';
 
+
 @Component({
   selector: 'app-drinks',
   templateUrl: './drinks.page.html',
@@ -11,9 +12,11 @@ import { Drink } from '../model/drink';
 })
 export class DrinksPage implements OnInit, AfterViewInit {
   drinks: Drink[];
+  searchText: string;
   @ViewChild('searchBar') searchBar: IonSearchbar;
   constructor(public platform: Platform, private drinksService: DrinksService, private router: Router) { }
   ngAfterViewInit(): void {
+
     console.log(this.searchBar);
   }
 

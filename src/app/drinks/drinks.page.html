@@ -11,7 +11,11 @@
   </ion-toolbar>
   <ion-toolbar> 
 
-      <ion-searchbar inputmode="search" #searchBar>
+      <ion-searchbar 
+      inputmode="search" 
+      [(ngModel)]="searchText"
+      (search)="getDrinks(searchText)"
+       #searchBar>
       </ion-searchbar>
   </ion-toolbar>
 </ion-header>

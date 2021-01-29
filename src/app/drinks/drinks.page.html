@@ -1,33 +1,42 @@
 <ion-header translucent="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title> Drinks</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-<ion-header collapse="condense" >
-  <ion-toolbar > 
-    <ion-title size="large"> Drinks </ion-title>
-  </ion-toolbar>
-  <ion-toolbar> 
+<ion-content [fullscreen]="true" color="tertiary" 
+[class.ion-justify-content-center]="!drinks"
+[class.ion-align-items-center]="!drinks">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large"> Drinks </ion-title>
+    </ion-toolbar>
+    <ion-toolbar color="primary">
 
-      <ion-searchbar 
-      inputmode="search" 
-      [(ngModel)]="searchText"
-      (search)="getDrinks(searchText)"
-       #searchBar>
+      <ion-searchbar inputmode="search" [(ngModel)]="searchText" (search)="searchDrink()">
       </ion-searchbar>
-  </ion-toolbar>
-</ion-header>
-<ion-searchbar *ngIf="!platform.is('ios')">
-</ion-searchbar>
-<ion-list> 
-  <ion-item *ngFor="let drink of drinks" (click)="goToDetail(drink)">
-    <ion-thumbnail slot="start">
-      <ion-img [src]="drink.strDrinkThumb">
-      </ion-img>
-    </ion-thumbnail>
-       <h2> {{drink.strDrink}}</h2>
-  </ion-item>
-</ion-list>
+    </ion-toolbar>
+  </ion-header>
+  <ion-searchbar *ngIf="!platform.is('ios')" inputmode="search" [(ngModel)]="searchText" (search)="searchDrink()">
+  </ion-searchbar>
+  <ion-grid id="no-drink-container"*ngIf="!drinks" class="ion-padding">
+    <ion-row class="ion-padding ">
+      <ion-col>
+        <ion-img 
+        src="../../assets/drink.png"
+          > 
+          </ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  <ion-list>
+    <ion-item *ngFor="let drink of drinks" (click)="goToDetail(drink)">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="drink.strDrinkThumb">
+        </ion-img>
+      </ion-thumbnail>
+      <h2> {{drink.strDrink}}</h2>
+    </ion-item>
+  </ion-list>
 </ion-content>

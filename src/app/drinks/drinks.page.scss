@@ -1,0 +1,17 @@
+:host {
+    background-color: var(--ion-color-tertiary-shade);
+    ion-list {
+        background-color: var(--ion-color-tertiary-shade);
+        ion-item::part(native) {
+            background-color: var(--ion-color-tertiary);
+            color: white;
+        }
+    }
+    ion-header, ion-searchbar{
+        background-color: var(--ion-color-primary);
+    }
+    
+    #no-drink-container ion-img::part(image) {
+        opacity: 0.5;
+    }
+}

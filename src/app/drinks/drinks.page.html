@@ -1,0 +1,29 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-title> Drinks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-header collapse="condense" >
+  <ion-toolbar > 
+    <ion-title size="large"> Drinks </ion-title>
+  </ion-toolbar>
+  <ion-toolbar> 
+
+      <ion-searchbar inputmode="search" #searchBar>
+      </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-searchbar *ngIf="!platform.is('ios')">
+</ion-searchbar>
+<ion-list> 
+  <ion-item *ngFor="let drink of drinks" (click)="goToDetail(drink)">
+    <ion-thumbnail slot="start">
+      <ion-img [src]="drink.strDrinkThumb">
+      </ion-img>
+    </ion-thumbnail>
+       <h2> {{drink.strDrink}}</h2>
+  </ion-item>
+</ion-list>
+</ion-content>

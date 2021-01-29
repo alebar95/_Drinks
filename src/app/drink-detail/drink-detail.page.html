@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="">
+    <ion-back-button defaultHref="/"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>Drink Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+<ion-img [src]="drink?.strDrinkThumb">
+</ion-img> 
+<div class="ion-padding">
+  <h2 class="ion-text-center"> {{drink?.strDrink}}</h2>
+  <h5>
+    Ingredients
+  </h5>
+  <ion-list> 
+    <ion-item *ngFor="let ingredient of ingredients"> 
+      <ion-grid>
+        <ion-row>
+          <ion-col >
+            <p> {{ ingredient?.name }}</p>
+          </ion-col>
+          <ion-col>
+            <p class="ion-text-end"> {{ ingredient?.quantity}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+  <h5> Preparation </h5>
+  <p>
+    {{drink?.strInstructions}}
+  </p>
+</div>
+
+</ion-content>
